@@ -41,13 +41,14 @@ class ControllersTeste {
 
   public updateUser = async (request: Request, response: Response) => {
     const { id } = request.params; // Get the user ID from the URL
-    const { email, password, name, role } = request.body; // Data to update
-
+    const { password, name, role } = request.body; // Data to update
+    console.log(request.body)
+    console.log(request.params)
     try {
       const updatedUser = await prisma.user.update({
         where: { id: Number(id) }, // Update based on ID
         data: {
-          email,
+          
           password,
           name,
           role
